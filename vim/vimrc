@@ -51,6 +51,7 @@ Plugin 'derekwyatt/vim-fswitch'
 Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'mbbill/vim-seattle'
 " 插件列表结束
 call vundle#end()
 filetype plugin indent on
@@ -61,6 +62,7 @@ colorscheme default
 "colorscheme solarized
 "colorscheme molokai
 "colorscheme phd
+"colorscheme seattle
 
 " 禁止光标闪烁
 set gcr=a:block-blinkon0
