@@ -1,0 +1,219 @@
+" map leader prefix
+let mapleader=";"
+
+" filetype identify
+filetype on
+filetype plugin on
+
+set encoding=utf-8
+set fileencoding=utf-8
+set anti enc=utf-8
+"set guifont=Ubuntu\ Mono\ for\ Powerline:h11:cANSI
+set guifont=Source\ Code\ Pro:h11:cANSI
+
+" auto changedir
+set autochdir
+" line start or end
+nmap LB 0
+nmap LE $
+" copy to system paste board
+vnoremap <Leader>y "+y
+" from system paster board to vim
+nmap <Leader>p "+p
+" close current window
+nmap <Leader>q :q<CR>
+" save current window
+nmap <Leader>w :w<CR>
+" save and quite vim
+nmap <Leader>WQ :wa<CR>:q<CR>
+" quit vim without save
+nmap <Leader>Q :qa!<CR>
+" go throght all windows
+nnoremap nw <C-W><C-W>
+" right window
+nnoremap <Leader>lw <C-W>l
+" left window
+nnoremap <Leader>hw <C-W>h
+" above window
+nnoremap <Leader>kw <C-W>k
+" downside window
+nnoremap <Leader>jw <C-W>j
+" jump buckets
+nmap <Leader>M %
+
+" make config live right away
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+" vundle
+set nocompatible
+filetype off
+set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+call vundle#begin('$HOME/vimfiles/bundle/')
+" vundle pulugins must placed between vundle#begin() and vundle#end()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+" Plugin 'Lokaltog/vim-powerline'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'SirVer/ultisnips'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'mbbill/vim-seattle'
+Plugin 'istro/vim-buffer-explorer'
+Plugin 'corntrace/bufexplorer'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'chriskempson/tomorrow-theme'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'simeji/winresizer'
+Plugin 'joshdick/onedark.vim'
+" end of the plugin list
+call vundle#end()
+filetype plugin indent on
+
+" theme
+syntax enable
+set background=dark
+"colorscheme Tomorrow-Night
+"colorscheme hybrid
+"colorscheme default
+"colorscheme solarized
+"colorscheme molokai
+"colorscheme phd
+"colorscheme seattle
+colorscheme onedark
+
+" mo flash
+set gcr=a:block-blinkon0
+" no scoll bar
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+" no menu and toolbar
+set guioptions-=m
+set guioptions-=T
+
+" always has status bar
+set laststatus=2
+" current cursor location
+set ruler
+
+set number
+
+set cursorline
+set cursorcolumn
+" highlight the search
+set hlsearch
+
+" no wrap
+set nowrap
+
+syntax on
+
+
+
+filetype indent on
+
+set expandtab
+
+set tabstop=4
+
+set shiftwidth=4
+
+set softtabstop=4
+
+
+let g:indent_guides_enable_on_vim_startup=1
+
+let g:indent_guides_start_level=2
+
+let g:indent_guides_guide_size=1
+
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+
+
+"set foldmethod=indent
+set foldmethod=syntax
+
+set nofoldenable
+" jump between *.cpp and *.h
+nmap <silent> <Leader>sw :FSHere<cr>
+
+" ：file list
+nmap <Leader>fl :NERDTreeToggle<CR>
+" NERDTree window width
+let NERDTreeWinSize=60
+
+let NERDTreeWinPos="right"
+" show hidden
+let NERDTreeShowHidden=1
+" NERDTree
+let NERDTreeMinimalUI=1
+" delete file with buffer
+let NERDTreeAutoDeleteBuffer=1
+
+" show/display MiniBufExplorer
+map <Leader>bl :MBEToggle<cr>
+" buffer change
+map <C-Tab> :MBEbn<cr>
+map <C-S-Tab> :MBEbp<cr>
+
+" ctrlsf.vim
+" search in
+" project
+nnoremap <Leader>sp :CtrlSF<CR>
+
+""""""""""""""""""""""""""""""
+" => bufExplorer plugin
+""""""""""""""""""""""""""""""
+let g:bufExplorerDefaultHelp=0
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerFindActive=1
+let g:bufExplorerSortBy='name'
+map <leader>o :BufExplorer<cr>
+
+""""""""""""""""""""""""""""""
+" => CTRL-P
+""""""""""""""""""""""""""""""
+let g:ctrlp_working_path_mode = 0
+
+let g:ctrlp_map = '<c-f>'
+map <leader>j :CtrlP<cr>
+map <c-b> :CtrlPBuffer<cr>
+
+let g:ctrlp_max_height = 20
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+
+set backspace=indent,eol,start
+
+" airline setting
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+
+"""""""""""""""""""""""""""""
+" nerdcommenter
+"""""""""""""""""""""""""""""
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" remove the trailing whitespace
+autocmd FileType c,cpp,h,hpp,py,sh autocmd BufWritePre <buffer> %s/\s\+$//e
