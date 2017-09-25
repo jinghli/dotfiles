@@ -9,7 +9,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 set anti enc=utf-8
 "set guifont=Ubuntu\ Mono\ for\ Powerline:h11:cANSI
-set guifont=Source\ Code\ Pro:h11:cANSI
+"set guifont=Source\ Code\ Pro:h11:cANSI
+set guifont=SauceCodePro\ Nerd\ Font:h11:cANSI
 
 " auto changedir
 set autochdir
@@ -41,6 +42,20 @@ nnoremap <Leader>jw <C-W>j
 " jump buckets
 nmap <Leader>M %
 
+" vsp the window
+nnoremap <silent> <Leader>v :vsplit<CR>
+
+"""""""""""""""""""""""""""
+" ctags
+"""""""""""""""""""""""""""
+" generate tags
+nnoremap <silent> <Leader>T :!ctags -R --fields=+iaS --extra=+q --exclude='.git' --exclude='staged' --exclude='intermediate_files' --exclude='external' .<CR>
+" find tags
+set tags=./tags;/
+" Map the ctrl }
+nnoremap <leader>a <C-]>
+nnoremap <leader>t <C-t>
+
 " make config live right away
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
@@ -71,6 +86,11 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'simeji/winresizer'
 Plugin 'joshdick/onedark.vim'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'mileszs/ack.vim'
 " end of the plugin list
 call vundle#end()
 filetype plugin indent on
@@ -217,3 +237,30 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " remove the trailing whitespace
 autocmd FileType c,cpp,h,hpp,py,sh autocmd BufWritePre <buffer> %s/\s\+$//e
+
+" incremental search
+set incsearch
+
+""""""""""""""""""""""""""""
+" Easy Align
+"""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+"""""""""""""""""""""""""""
+" Multiple cursor
+"""""""""""""""""""""""""""
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+
+""""""""""""""""""""""""""
+""""""""""""""""""""""""""
+set wildmenu
+set wildmode=full
