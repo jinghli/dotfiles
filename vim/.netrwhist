@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='d:/perforce/workspace/components/StaticDataScanner/automation/jenkins'
+let g:netrw_dirhist_2='d:\perforce\workspace\components\StaticDataScanner\automation\jenkins\sds_ba_1.12'
+let g:netrw_dirhist_1='d:\perforce\workspace\components\StaticDataScanner\work_branches\trunk\dev\src\framework\repair/_reconcile_navex_'
+let g:netrw_dirhist_0='d:\perforce\workspace\components\StaticDataScanner\work_branches\trunk\dev\src\framework\repair'
+let g:netrw_dirhist_9='d:/perforce/workspace/components/StaticDataScanner/work_branches/trunk/dev/src/framework/data_file_parsing'
+let g:netrw_dirhist_8='d:/perforce/workspace/components/StaticDataScanner/work_branches/trunk/dev/src/framework'
+let g:netrw_dirhist_7='d:\perforce\workspace\components\StaticDataScanner\work_branches\trunk\dev\src\framework\extended_file_attributes'
+let g:netrw_dirhist_6='d:\perforce\workspace\components\StaticDataScanner\work_branches\trunk\dev\src\framework\repair'
+let g:netrw_dirhist_5='d:/perforce/workspace/components/StaticDataScanner/work_branches/trunk'
+let g:netrw_dirhist_4='d:/perforce/workspace/components/StaticDataScanner/work_branches/trunk/dev'
